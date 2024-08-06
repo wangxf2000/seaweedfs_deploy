@@ -6,7 +6,34 @@
 curl https://gitlab.com/ineo6/hosts/-/raw/master/hosts > ~/1.txt
 cat ~/1.txt >> /etc/hosts
 
+# 安装基础软件
 yum -y install wget tar tree
+
+# 配置 go 运行环境
+cd /usr/local
+# 下载
+wget https://golang.google.cn/dl/go1.22.5.linux-amd64.tar.gz
+
+# 解压
+tar -zxf go1.22.5.linux-amd64.tar.gz -C /usr/local/
+
+# 配置环境变量
+cat >> /etc/profile <<EOF
+
+export GOROOT=/usr/local/go
+export GOPATH=$GOROOT/bin
+export GOOS=linux
+export GOBIN=$GOROOT/bin
+export GOTOOLS=$GOROOT/pkg/tool/
+export PATH=$PATH:$GOBIN:$GOTOOLS
+
+EOF
+# 使配置文件生效
+source /etc/profile
+
+# 查看
+go version
+
 
 #将二进制文件复制到指定目录(如果有则不覆盖)
 #cp -n bin/weed /usr/local/bin
