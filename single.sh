@@ -55,6 +55,8 @@ mkdir -p /mount
 # 生成配置文件
 mkdir -p /etc/seaweedfs/
 /usr/local/bin/weed scaffold -config filer -output="/etc/seaweedfs"
+/usr/local/bin/weed scaffold -config security -output="/etc/seaweedfs"
+
 
 #查看目录结构
 tree /seaweedfs -d
