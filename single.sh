@@ -2,8 +2,13 @@
 
 # 单节点:1 master(9333) + 1 volume(8081) + 1 filer(8888)
 
+yum -y install wget tar 
+
 #将二进制文件复制到指定目录(如果有则不覆盖)
-cp -n bin/weed /usr/local/bin
+#cp -n bin/weed /usr/local/bin
+mkdir -p /usr/local/bin
+wget -P /usr/local https://github.com/seaweedfs/seaweedfs/releases/download/3.71/linux_amd64.tar.gz 
+tar -zxf /usr/local/linux_amd64.tar.gz  -C /usr/local/bin
 
 #创建目录结构
 #创建日志目录
