@@ -2,8 +2,17 @@
 ip=`ip a | grep inet | grep -v inet6 | grep -v 127.0.0.1 | sed 's/^[ \t]*//g' | cut -d ' ' -f2 |cut -d '/' -f1 | grep -v 172. | head -1`
 # 单节点:3 master(9331-9333) + 3 volume(8081-8083) + 1 filer(8888) + 1 mount
 
+# Github 加速
+curl https://gitlab.com/ineo6/hosts/-/raw/master/hosts > ~/1.txt
+cat ~/1.txt >> /etc/hosts
+
+yum -y install wget tar tree
+
 #将二进制文件复制到指定目录(如果有则不覆盖)
-cp -n bin/weed /usr/local/bin
+#cp -n bin/weed /usr/local/bin
+mkdir -p /usr/local/bin
+wget -P /usr/local https://github.com/seaweedfs/seaweedfs/releases/download/3.71/linux_amd64.tar.gz 
+tar -zxf /usr/local/linux_amd64.tar.gz  -C /usr/local/bin
 
 #创建目录结构
 #创建日志目录
