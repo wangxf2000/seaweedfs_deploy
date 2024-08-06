@@ -2,6 +2,10 @@
 
 # 单节点:1 master(9333) + 1 volume(8081) + 1 filer(8888)
 
+# Github 加速
+curl https://gitlab.com/ineo6/hosts/-/raw/master/hosts > ~/1.txt
+cat ~/1.txt >> /etc/hosts
+
 yum -y install wget tar tree
 
 #将二进制文件复制到指定目录(如果有则不覆盖)
