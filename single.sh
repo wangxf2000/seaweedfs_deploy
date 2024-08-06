@@ -2,7 +2,7 @@
 
 # 单节点:1 master(9333) + 1 volume(8081) + 1 filer(8888)
 
-yum -y install wget tar 
+yum -y install wget tar tree
 
 #将二进制文件复制到指定目录(如果有则不覆盖)
 #cp -n bin/weed /usr/local/bin
@@ -27,7 +27,7 @@ mkdir -p /etc/seaweedfs/
 #查看目录结构
 tree /seaweedfs -d
 
-tree /etc/seaweed
+tree /etc/seaweedfs
 
 #生成服务启动文件
 function create_service(){
