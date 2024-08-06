@@ -31,7 +31,7 @@ mkdir -p /etc/seaweedfs/
 #查看目录结构
 tree /seaweedfs -d
 
-tree /etc/seaweed
+tree /etc/seaweedfs
 
 #生成服务启动文件
 function create_service(){
