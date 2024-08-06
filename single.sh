@@ -10,6 +10,7 @@ yum -y install wget tar tree
 
 #将二进制文件复制到指定目录(如果有则不覆盖)
 #cp -n bin/weed /usr/local/bin
+rm -rf /usr/local/bin/linux_amd64.tar.gz
 mkdir -p /usr/local/bin
 wget -P /usr/local https://github.com/seaweedfs/seaweedfs/releases/download/3.71/linux_amd64.tar.gz 
 tar -zxf /usr/local/linux_amd64.tar.gz  -C /usr/local/bin
