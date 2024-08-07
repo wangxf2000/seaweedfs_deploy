@@ -60,6 +60,9 @@ cd /usr/local
 git clone https://github.com/square/certstrap
 #进入
 cd /usr/local/certstrap/
+go env -w GO111MODULE=on
+go env -w GOPROXY=https://goproxy.io,direct
+
 #构建
 go build
 
