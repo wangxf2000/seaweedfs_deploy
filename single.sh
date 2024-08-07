@@ -55,6 +55,27 @@ tree /seaweedfs -d
 
 tree /etc/seaweedfs
 
+#下载certstrap
+cd /usr/local
+git clone https://github.com/square/certstrap
+#进入
+cd /usr/local/certstrap/
+#构建
+go build
+
+#生成秘钥
+certstrap init --common-name "SeaweedFS CA"
+certstrap request-cert --common-name volume01
+certstrap request-cert --common-name master01
+certstrap request-cert --common-name filer01
+certstrap request-cert --common-name client01
+certstrap sign --CA "SeaweedFS CA" volume01
+certstrap sign --CA "SeaweedFS CA" master01
+certstrap sign --CA "SeaweedFS CA" filer01
+certstrap sign --CA "SeaweedFS CA" client01
+
+cp security.toml /etc/seaweedfs/security.toml
+
 #生成服务启动文件
 function create_service(){
 cat <<EOF > /lib/systemd/system/weed-${service_name}-server.service
