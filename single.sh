@@ -67,15 +67,15 @@ go env -w GOPROXY=https://goproxy.io,direct
 go build
 
 #生成秘钥
-certstrap init --common-name "SeaweedFS CA"
-certstrap request-cert --common-name volume01
-certstrap request-cert --common-name master01
-certstrap request-cert --common-name filer01
-certstrap request-cert --common-name client01
-certstrap sign --CA "SeaweedFS CA" volume01
-certstrap sign --CA "SeaweedFS CA" master01
-certstrap sign --CA "SeaweedFS CA" filer01
-certstrap sign --CA "SeaweedFS CA" client01
+./certstrap init --common-name "SeaweedFS CA"    --passphrase ""
+./certstrap request-cert --common-name volume01   --passphrase ""
+./certstrap request-cert --common-name master01   --passphrase ""
+./certstrap request-cert --common-name filer01   --passphrase ""
+./certstrap request-cert --common-name client01   --passphrase ""
+./certstrap sign --CA "SeaweedFS CA" volume01   --passphrase ""
+./certstrap sign --CA "SeaweedFS CA" master01   --passphrase ""
+./certstrap sign --CA "SeaweedFS CA" filer01   --passphrase ""
+./certstrap sign --CA "SeaweedFS CA" client01   --passphrase ""
 
 cp security.toml /etc/seaweedfs/security.toml
 
