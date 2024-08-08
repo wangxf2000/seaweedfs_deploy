@@ -77,7 +77,7 @@ go build
 ./certstrap sign --CA "SeaweedFS CA" filer01   --passphrase ""
 ./certstrap sign --CA "SeaweedFS CA" client01   --passphrase ""
 
-cp security.toml /etc/seaweedfs/security.toml
+cp ~/seaweedfs_deploy/security.toml /etc/seaweedfs/security.toml
 
 #生成服务启动文件
 function create_service(){
